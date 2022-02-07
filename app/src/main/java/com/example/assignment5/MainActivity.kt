@@ -8,6 +8,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        var a = ""
+        var b = 0
+        var c = ""
+        var d : Double = 0.0
+
         button7.setOnClickListener {
             if (textView3.text == "0" || textView3.text.length.toString() == "1") {
                 textView3.setText("0")
@@ -96,6 +101,55 @@ class MainActivity : AppCompatActivity() {
                 textView3.setText("0")
             } else {
                 textView3.setText(textView3.text.toString() + "0")
+            }
+        }
+
+        button9.setOnClickListener {
+            c = "/"
+            a = textView3.text.toString()
+            textView3.setText("0")
+        }
+        button13.setOnClickListener {
+            c = "*"
+            a = textView3.text.toString()
+            textView3.setText("0")
+        }
+        button17.setOnClickListener {
+            c = "-"
+            a = textView3.text.toString()
+            textView3.setText("0")
+        }
+        button21.setOnClickListener {
+            c = "+"
+            a = textView3.text.toString()
+            textView3.setText("0")
+        }
+        button8.setOnClickListener {
+            c = "%"
+            a = textView3.text.toString()
+            textView3.setText("0")
+        }
+        button24.setOnClickListener {
+            if (c == "/") {
+                d = (a.toString().toDouble() / textView3.text.toString().toDouble())
+                textView3.setText(d.toString())
+            } else if (c == "*") {
+                d = (a.toString().toDouble() * textView3.text.toString().toDouble())
+                textView3.setText(d.toString())
+            } else if (c == "-") {
+                d = (a.toString().toDouble() - textView3.text.toString().toDouble())
+                textView3.setText(d.toString())
+            } else if (c == "+") {
+                d = (a.toString().toDouble() + textView3.text.toString().toDouble())
+                textView3.setText(d.toString())
+            }else if (c == "%") {
+                d = (a.toString().toDouble() % textView3.text.toString().toDouble())
+                textView3.setText(d.toString())
+            }
+        }
+        button23.setOnClickListener {
+            if (!textView3.text.toString().contains(".")) {
+                textView3.text = textView3.text.toString() + "."
             }
         }
 
